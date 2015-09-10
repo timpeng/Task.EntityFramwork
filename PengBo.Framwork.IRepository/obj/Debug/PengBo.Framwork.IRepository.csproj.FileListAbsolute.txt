@@ -1,0 +1,10 @@
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.IRepository\bin\Debug\PengBo.Framwork.IRepository.dll
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.IRepository\bin\Debug\PengBo.Framwork.IRepository.pdb
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.IRepository\bin\Debug\EntityFramework.dll
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.IRepository\bin\Debug\PengBo.Framwork.Domain.dll
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.IRepository\bin\Debug\PengBo.Framwork.Domain.pdb
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.IRepository\bin\Debug\EntityFramework.xml
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.IRepository\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.IRepository\obj\Debug\PengBo.Framwork.IRepository.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.IRepository\obj\Debug\PengBo.Framwork.IRepository.dll
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.IRepository\obj\Debug\PengBo.Framwork.IRepository.pdb

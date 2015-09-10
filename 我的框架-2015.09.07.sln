@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PengBo.Framwork.Repository", "PengBo.Framwork.Repository\PengBo.Framwork.Repository.csproj", "{751454CE-E047-4E14-96BD-7390835CA521}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PengBo.Framwork.Core", "PengBo.Framwork.Core\PengBo.Framwork.Core.csproj", "{5D6856BC-475E-4C48-9532-A3304C542D66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PengBo.Framwork.IRepository", "PengBo.Framwork.IRepository\PengBo.Framwork.IRepository.csproj", "{83D76A98-8EFA-40C1-A9F1-82D981BC15DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PengBo.Framwork.Unity", "PengBo.Framwork.Unity\PengBo.Framwork.Unity.csproj", "{F2FBBF9B-8E71-4C92-8CB4-CDF7F71C1E69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PengBo.Framwork.Domain", "PengBo.Framwork.Domain\PengBo.Framwork.Domain.csproj", "{7DB870D5-8CC7-4817-B5E0-FC7A81ABE403}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PengBo.Framwork.Test", "PengBo.Framwork.Test\PengBo.Framwork.Test.csproj", "{78BC37FC-A830-4D03-A9F0-D40E4A287456}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{751454CE-E047-4E14-96BD-7390835CA521}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{751454CE-E047-4E14-96BD-7390835CA521}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{751454CE-E047-4E14-96BD-7390835CA521}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{751454CE-E047-4E14-96BD-7390835CA521}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D6856BC-475E-4C48-9532-A3304C542D66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D6856BC-475E-4C48-9532-A3304C542D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D6856BC-475E-4C48-9532-A3304C542D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D6856BC-475E-4C48-9532-A3304C542D66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83D76A98-8EFA-40C1-A9F1-82D981BC15DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83D76A98-8EFA-40C1-A9F1-82D981BC15DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83D76A98-8EFA-40C1-A9F1-82D981BC15DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83D76A98-8EFA-40C1-A9F1-82D981BC15DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2FBBF9B-8E71-4C92-8CB4-CDF7F71C1E69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2FBBF9B-8E71-4C92-8CB4-CDF7F71C1E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2FBBF9B-8E71-4C92-8CB4-CDF7F71C1E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2FBBF9B-8E71-4C92-8CB4-CDF7F71C1E69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DB870D5-8CC7-4817-B5E0-FC7A81ABE403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DB870D5-8CC7-4817-B5E0-FC7A81ABE403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DB870D5-8CC7-4817-B5E0-FC7A81ABE403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DB870D5-8CC7-4817-B5E0-FC7A81ABE403}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78BC37FC-A830-4D03-A9F0-D40E4A287456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78BC37FC-A830-4D03-A9F0-D40E4A287456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78BC37FC-A830-4D03-A9F0-D40E4A287456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78BC37FC-A830-4D03-A9F0-D40E4A287456}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

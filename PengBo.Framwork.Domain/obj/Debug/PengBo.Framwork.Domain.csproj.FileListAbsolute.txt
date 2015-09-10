@@ -1,0 +1,11 @@
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.Domain\bin\Debug\PengBo.Framwork.Domain.dll.config
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.Domain\bin\Debug\PengBo.Framwork.Domain.dll
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.Domain\bin\Debug\PengBo.Framwork.Domain.pdb
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.Domain\bin\Debug\EntityFramework.dll
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.Domain\bin\Debug\EntityFramework.xml
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.Domain\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.Domain\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.Domain\obj\Debug\PengBo.Framwork.Domain.dll
+C:\Users\admin\Desktop\PengBo.Framwork\我的框架-2015.09.07\PengBo.Framwork.Domain\obj\Debug\PengBo.Framwork.Domain.pdb
