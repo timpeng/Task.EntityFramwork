@@ -52,13 +52,18 @@ namespace PengBo.Framwork.Test.Controllers
             #endregion
             #region 多个库的测试
             //todo:加入事物
-            await _testRepository.InsertAsync(new Domain.Test
+            _testRepository.Tran_Begin(() =>
             {
-                Value = 3
-            });
-            await _categoryRepository.InsertAsync(new Category
-            {
-                Name = "彭博框架"
+                 _testRepository.Insert(new Domain.Test
+                {
+                    Value = 5
+                });
+                 _categoryRepository.Insert(new Category
+                {
+                    Name = "彭博框架2015  "
+                });
+                _testRepository.SaveChanges();
+                _categoryRepository.SaveChanges();
             });
             #endregion
             return View();

@@ -89,11 +89,10 @@ namespace PengBo.Framwork.Repository
         }
         #endregion
         #region 删除
-        public bool Delete(T model)
+        public void Delete(T model)
         {
             DbSet.Attach(model);
             DbSet.Remove(model);
-            return this.SaveChanges();
         }
         public async Task<bool> DeleteAsync(T model)
         {
@@ -124,10 +123,9 @@ namespace PengBo.Framwork.Repository
             Db.Set<T>().Add(model);
             return await this.SaveChangeAsync();
         }
-        public bool Insert(T model)
+        public void Insert(T model)
         {
             DbSet.Add(model);
-            return this.SaveChanges();
         }
         public async Task<bool> InsertAsync(IEnumerable<T> model)
         {
@@ -140,11 +138,10 @@ namespace PengBo.Framwork.Repository
         }
         #endregion
         #region 更新
-        public bool Update(T model)
+        public void Update(T model)
         {
             DbSet.Attach(model);
             Db.Entry(model).State = EntityState.Modified;
-            return this.SaveChanges();
         }
         public async Task<bool> UpdateAsync(T model)
         {
@@ -174,13 +171,13 @@ namespace PengBo.Framwork.Repository
         #endregion
         #region 查找
 
-        public async Task<IQueryable<T>> GetEntitiesAsync(Expression<Func<T, bool>> wherExpression)
+        public async Task<IQueryable<T>> GetEntitiesAsync(Expression<Func<T, bool>> whereExpression)
         {
-            return await Task.Run(() => DbSet.Where(wherExpression));
+            return await Task.Run(() => DbSet.Where(whereExpression));
         }
-        public async Task<T> GetEntityAsync(Expression<Func<T, bool>> wherExpression)
+        public async Task<T> GetEntityAsync(Expression<Func<T, bool>> whereExpression)
         {
-            return await Task.Run(() => DbSet.Where(wherExpression).FirstOrDefault());
+            return await DbSet.Where(whereExpression).FirstOrDefaultAsync();
         }
         public async Task<IQueryable<T>> GetEntitiesAsync()
         {

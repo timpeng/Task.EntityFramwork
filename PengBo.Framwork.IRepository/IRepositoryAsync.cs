@@ -13,20 +13,20 @@ namespace PengBo.Framwork.IRepository
         DbContext Db { get; set; }
         void Tran_Begin(Action action);
         bool IsEmpty { get; }
-        bool Insert(T model);
-        bool Delete(T model);
-        bool Update(T model);
+        void Insert(T model);
+        void Delete(T model);
+        void Update(T model);
         Task<int> GetCountAsync();
 
         Task<bool> SaveChangeAsync();
 
         Task BulkSaveChangeAsync();
-
+        bool SaveChanges();
         Task<bool> DeleteAsync(T model);
 
         Task<bool> DeleteAsync(IEnumerable<T> model);
 
-        Task<bool> DeleteAsync(Expression<Func<T, bool>> wherExpression);
+        Task<bool> DeleteAsync(Expression<Func<T, bool>> whereExpression);
 
         void BulkDelete(IEnumerable<T> model);
 
@@ -42,9 +42,9 @@ namespace PengBo.Framwork.IRepository
 
         void BulkUpdate(IEnumerable<T> model);
 
-        Task<IQueryable<T>> GetEntitiesAsync(Expression<Func<T, bool>> wherExpression);
+        Task<IQueryable<T>> GetEntitiesAsync(Expression<Func<T, bool>> whereExpression);
 
-        Task<T> GetEntityAsync(Expression<Func<T, bool>> wherExpression);
+        Task<T> GetEntityAsync(Expression<Func<T, bool>> whereExpression);
 
         Task<IQueryable<T>> GetEntitiesAsync();
 
