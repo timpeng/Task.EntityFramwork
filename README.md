@@ -1,12 +1,15 @@
 # Task.EntityFramwork
 请使用VS2013及以上版本打开，调试前请更新自动更新dll文件。
+
 注意：使用多个库的事物操作的时会遇到以下异常：
 
 异常标题：基础提供程序在 Open 上失败。
-异常描述：服务器 ’xxx‘上的 MSDTC 不可用
-解决方案如下：
 
+异常描述：服务器 ’xxx‘上的 MSDTC 不可用
+
+解决方案如下：
 服务器×××上的MSDTC不可用解决办法
+
 MSDTC(分布式交易协调器)，协调跨多个数据库、消息队列、文件系统等资源管理器的事务。该服务的进程名为Msdtc.exe,该进程调用系统Microsoft Personal Web Server和Microsoft SQL Server。该服务用于管理多个服务器 .
 
 位置：控制面板－－管理工具－－服务－－Distributed Transaction Coordinator
