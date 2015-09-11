@@ -20,7 +20,7 @@ MSDTC(分布式交易协调器)，协调跨多个数据库、消息队列、文�
 
 解决办法: 1. 在windows控制面版-->管理工具-->服务-->Distributed Transaction Coordinator-->属性-->启动
 
-        2.在CMD下运行"net start msdtc"开启服务后正常。
+          2.在CMD下运行"net start msdtc"开启服务后正常。
         
 注：如果在第1步Distributed Transaction Coordinator
 
