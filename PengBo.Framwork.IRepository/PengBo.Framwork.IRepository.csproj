@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICategoryRepository.cs" />
-    <Compile Include="IRepositoryAsync.cs" />
+    <Compile Include="IBaseRepository.cs" />
     <Compile Include="ITestRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

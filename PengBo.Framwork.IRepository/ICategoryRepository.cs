@@ -7,7 +7,7 @@ using PengBo.Framwork.Domain;
 
 namespace PengBo.Framwork.IRepository
 {
-    public interface ICategoryRepository : IRepositoryAsync<Category>
+    public interface ICategoryRepository : IBaseRepository<Category>
     {
     }
 }

@@ -1,0 +1,7 @@
+D:\GitHub.Repository\Task.EntityFramwork\PengBo.Framwork.Wcf.Host\bin\Release\PengBo.Framwork.Wcf.Host.exe.config
+D:\GitHub.Repository\Task.EntityFramwork\PengBo.Framwork.Wcf.Host\bin\Release\PengBo.Framwork.Wcf.Host.exe
+D:\GitHub.Repository\Task.EntityFramwork\PengBo.Framwork.Wcf.Host\bin\Release\PengBo.Framwork.Wcf.Host.pdb
+D:\GitHub.Repository\Task.EntityFramwork\PengBo.Framwork.Wcf.Host\obj\Release\PengBo.Framwork.Wcf.Host.ProjectInstaller.resources
+D:\GitHub.Repository\Task.EntityFramwork\PengBo.Framwork.Wcf.Host\obj\Release\PengBo.Framwork.Wcf.Host.csproj.GenerateResource.Cache
+D:\GitHub.Repository\Task.EntityFramwork\PengBo.Framwork.Wcf.Host\obj\Release\PengBo.Framwork.Wcf.Host.exe
+D:\GitHub.Repository\Task.EntityFramwork\PengBo.Framwork.Wcf.Host\obj\Release\PengBo.Framwork.Wcf.Host.pdb

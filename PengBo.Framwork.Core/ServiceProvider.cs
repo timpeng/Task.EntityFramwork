@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Core;
-using Autofac.Integration.Mvc;
+using Autofac.Integration.Mvc;  
 using PengBo.Framwork.Core;
 using PengBo.Framwork.Domain;
 using PengBo.Framwork.Unity;
@@ -20,14 +17,17 @@ namespace PengBo.Framwork.Core
     public class ServiceProvider : IDisposable
     {
         private const string Repositorydll = "PengBo.Framwork.Repository.dll";
+        private const string Servicedll = "PengBo.Framwork.Wcf.Service.dll";
         private static IContainer _container;
         public static void Init()
         {
             var builder = new ContainerBuilder();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterAssemblyModules(Assembly.GetExecutingAssembly());
-            var assembly = Assembly.UnsafeLoadFrom(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bin", Repositorydll));
-            RegsiterService(builder, assembly);
+            var repositorydllassembly = Assembly.UnsafeLoadFrom(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bin", Repositorydll));
+            var servicedllassembly = Assembly.UnsafeLoadFrom(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bin", Servicedll));
+            RegsiterService(builder, repositorydllassembly);
+            RegsiterService(builder, servicedllassembly);
             _container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(_container));
         }
@@ -55,8 +55,8 @@ namespace PengBo.Framwork.Core
             types.ForEach(u =>
             {
                 var contract = u.GetInterfaces()
-                    .Where(s => s.Name.EndsWith("Repository") || s
-                    .Name.EndsWith("Service")).ToArray();
+                    .Where(s => (s.Name.EndsWith("Repository") || s
+                    .Name.EndsWith("Service"))&&!s.Name.StartsWith("IBase")).ToArray();
                 if (!u.IsGenericType)
                 {
                     builder.RegisterType(u).As(contract).Named(u.Name, u);

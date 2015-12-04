@@ -9,7 +9,7 @@ using PengBo.Framwork.IRepository;
 
 namespace PengBo.Framwork.Repository
 {
-    public class TestRepository : DbContextRepository<Test>, ITestRepository
+    public class TestRepository : BaseRepository<Test>, ITestRepository
     {
         public TestRepository(DbContext db)//继承基类构造函数，由入口传入参数
             : base(db)

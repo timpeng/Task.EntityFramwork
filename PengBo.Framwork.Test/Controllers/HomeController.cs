@@ -10,13 +10,14 @@ using Autofac.Core;
 using PengBo.Framwork.Core;
 using PengBo.Framwork.Domain;
 using PengBo.Framwork.IRepository;
+using PengBo.Framwork.Wcf.Contract;
 
 namespace PengBo.Framwork.Test.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ICategoryRepository _categoryRepository =
-            ServiceProvider.Reslove<ICategoryRepository>();
+        private readonly ICategoryService _categoryService =
+            ServiceProvider.Reslove<ICategoryService>();
 
         private readonly ITestRepository _testRepository =
             ServiceProvider.Reslove<ITestRepository>(
@@ -33,7 +34,11 @@ namespace PengBo.Framwork.Test.Controllers
             //}));
             #endregion
             #region sql查询,查询是需要延迟执行EF上下文需要手动释放。
-            //var d = await _categoryRepository.SqlQueryAsync("select *  from Category");
+
+            using (_testRepository)
+            {
+                var d = await _categoryService.SqlQueryAsync("select *  from Category");
+            }
             //ViewBag.Count = d.Count();
             //_categoryRepository.Dispose();
             //查询是需要延迟执行的所以这里需要自己手动释放。
@@ -52,19 +57,19 @@ namespace PengBo.Framwork.Test.Controllers
             #endregion
             #region 多个库的测试
             //todo:加入事物
-            _testRepository.Tran_Begin(() =>
-            {
-                 _testRepository.Insert(new Domain.Test
-                {
-                    Value = 5
-                });
-                 _categoryRepository.Insert(new Category
-                {
-                    Name = "彭博框架2015  "
-                });
-                _testRepository.SaveChanges();
-                _categoryRepository.SaveChanges();
-            });
+            //_testRepository.Tran_Begin(() =>
+            //{
+            //     _testRepository.Insert(new Domain.Test
+            //    {
+            //        Value = 5
+            //    });
+            //     _categoryService.Insert(new Category
+            //    {
+            //        Name = "彭博框架2015  "
+            //    });
+            //    _testRepository.SaveChanges();
+            //    _categoryService.SaveChanges();
+            //});
             #endregion
             return View();
         }
