@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using PengBo.Framwork.IRepository;
 using PengBo.Framwork.Unity;
+using PengBo.Framwork.Wcf.Common;
 
 namespace PengBo.Framwork.Wcf.Service
 {
@@ -46,6 +47,7 @@ namespace PengBo.Framwork.Wcf.Service
         }
         public bool Insert(T model)
         {
+            //var operators = WcfContext.Current.Operator;
             return DataContext.Insert(model);
         }
         public async Task<bool> InsertAsync(IEnumerable<T> model)

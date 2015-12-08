@@ -38,7 +38,7 @@ namespace PengBo.Framwork.Unity
             throw new Exception("当前值不能转为int32");
         }
 
-        public static T DeserializeObjectToJson<T>(this string value)
+        public static T SerializeObject<T>(this string value) where T:class 
         {
             return JsonConvert.DeserializeObject<T>(value);
         }

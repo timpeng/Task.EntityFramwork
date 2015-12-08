@@ -17,6 +17,19 @@ namespace PengBo.Framwork.Test.Controllers
 {
     public class HomeController : Controller
     {
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            WcfContext.Current.Operator = new WcfOperator
+            {
+                Action = filterContext.ActionDescriptor.ActionName,
+                IpAddress = Request.UserHostAddress,
+                LoginToken = Guid.NewGuid(),
+                StartTime = DateTime.Now,
+                UId = "zhangsan"
+            };
+            base.OnActionExecuting(filterContext);
+        }
+
         #region field
         //private readonly ICategoryService _categoryService =
         //    ServiceProvider.Reslove<ICategoryService>();

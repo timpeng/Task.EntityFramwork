@@ -71,6 +71,10 @@
       <Project>{f2fbbf9b-8e71-4c92-8cb4-cdf7f71c1e69}</Project>
       <Name>PengBo.Framwork.Unity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PengBo.Framwork.Wcf.Common\PengBo.Framwork.Wcf.Common.csproj">
+      <Project>{b8eac295-bad1-4e65-8f0c-726ebd12b2dd}</Project>
+      <Name>PengBo.Framwork.Wcf.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PengBo.Framwork.Wcf.Contract\PengBo.Framwork.Wcf.Contract.csproj">
       <Project>{db5bd61a-a1a9-4ef0-b450-80c1d6add3cc}</Project>
       <Name>PengBo.Framwork.Wcf.Contract</Name>

@@ -13,7 +13,7 @@ namespace PengBo.Framwork.Wcf.Common
         /// <summary>
         /// 执行带返回值的接口
         /// </summary>
-        public static TS GetProxy<T, TS>(Func<T, TS> funcHandler, EndpointAddress endpointAddress = null, Binding binding = null) where TS :class 
+        public static TS GetProxy<T, TS>(Func<T, TS> funcHandler, EndpointAddress endpointAddress = null, Binding binding = null) where TS : class
         {
             TS ts = null;
             ChannelFactory<T> proxy;
@@ -74,6 +74,7 @@ namespace PengBo.Framwork.Wcf.Common
             {
                 proxy = new ChannelFactory<T>(typeof(T).Name);
             }
+            proxy.Endpoint.Behaviors.Add(new WebClientEndPointBehavior());
             using (proxy)
             {
                 var t = proxy.CreateChannel();
