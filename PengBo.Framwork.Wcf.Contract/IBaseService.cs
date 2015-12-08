@@ -5,67 +5,61 @@ using System.Linq.Expressions;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace PengBo.Framwork.Wcf.Contract
 {
     [ServiceContract]
-    public interface IBaseService<T> :IDisposable where T : class
+    public interface IBaseService<T> : IDisposable where T : class
     {
         [OperationContract]
         void Tran_Begin(Action action);
         [OperationContract]
         bool IsEmpty();
         [OperationContract]
-        void Insert(T model);
+        bool Insert(T model);
         [OperationContract]
-        void Delete(T model);
+        bool Delete(T model);
         [OperationContract]
-        void Update(T model);
-        [OperationContract]
+        bool Update(T model);
+        [OperationContract(Name = "TaskGetCount")]
         Task<int> GetCountAsync();
-        [OperationContract]
 
-        Task<bool> SaveChangeAsync();
-        [OperationContract]
-        Task BulkSaveChangeAsync();
-        [OperationContract]
-        bool SaveChanges();
-        [OperationContract]
+        [OperationContract(Name = "TaskDelete")]
         Task<bool> DeleteAsync(T model);
-        [OperationContract]
+        [OperationContract(Name = "TaskDeleteBulk")]
 
         Task<bool> DeleteAsync(IEnumerable<T> model);
-        [OperationContract]
+        [OperationContract(Name = "TaskDeleteByLambda")]
 
-        Task<bool> DeleteAsync(Expression<Func<T, bool>> whereExpression);
+        Task<bool> DeleteAsync(XElement xElement);
         [OperationContract]
-        void BulkDelete(IEnumerable<T> model);
-        [OperationContract]
+        Task BulkDelete(IEnumerable<T> model);
+        [OperationContract(Name = "TaskInsert")]
         Task<bool> InsertAsync(T model);
-        [OperationContract]
+        [OperationContract(Name = "TaskInsertBulk")]
         Task<bool> InsertAsync(IEnumerable<T> model);
         [OperationContract]
-        void BulkInsert(IEnumerable<T> model);
-        [OperationContract]
+        Task BulkInsert(IEnumerable<T> model);
+        [OperationContract(Name = "TaskUpdate")]
         Task<bool> UpdateAsync(T model);
-        [OperationContract]
+        [OperationContract(Name = "TaskUpdateSeparateField")]
         Task<bool> UpdateAsync(T model, params string[] param);
         [OperationContract]
-        void BulkUpdate(IEnumerable<T> model);
-        [OperationContract]
-        Task<IQueryable<T>> GetEntitiesAsync(Expression<Func<T, bool>> whereExpression);
-        [OperationContract]
-        Task<T> GetEntityAsync(Expression<Func<T, bool>> whereExpression);
-        [OperationContract]
+        Task BulkUpdate(IEnumerable<T> model);
+        [OperationContract(Name = "TaskGetEntitiesByLambda")]
+        Task<IQueryable<T>> GetEntitiesAsync(XElement xElement);
+        [OperationContract(Name = "TaskGetEntityByLambda")]
+        Task<T> GetEntityAsync(XElement xElement);
+        [OperationContract(Name = "TaskGetEntities")]
         Task<IQueryable<T>> GetEntitiesAsync();
-        [OperationContract]
+        [OperationContract(Name = "TaskGetEntity")]
         Task<T> GetEntityAsync();
         [OperationContract]
-        IQueryable<T> GetEntitiesPaging<TS>(Expression<Func<T, bool>> wherExpression,
-            Expression<Func<T, TS>> orderExpression, int size, int index, out double pages, out int total);
-        [OperationContract]
+        IQueryable<T> GetEntitiesPaging<TS>(XElement xElementWhere, XElement xElementOrder, int size, int index, out double pages, out int total);
+        [OperationContract(Name = "TaskExecuteSqlCommand")]
         Task<bool> ExecuteSqlCommandAsync(string sql, params object[] param);
-        [OperationContract]
+        [OperationContract(Name = "TaskSqlQuery")]
         Task<IQueryable<T>> SqlQueryAsync(string sql, params object[] param);
     }
 }

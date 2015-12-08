@@ -10,10 +10,10 @@ using PengBo.Framwork.Wcf.Contract;
 
 namespace PengBo.Framwork.Wcf.Service
 {
-    public class CategoryService : BaseService<Category>, ICategoryService
+    public class TestService : BaseService<Test>, ITestService
     {
-        private IBaseRepository<Category> _baseRepository;
-        public IBaseRepository<Category> BaseRepository
+        private IBaseRepository<Test> _baseRepository;
+        public IBaseRepository<Test> BaseRepository
         {
             set
             {
@@ -21,11 +21,10 @@ namespace PengBo.Framwork.Wcf.Service
             }
             get
             {
-                return _baseRepository ?? ServiceProvider.Reslove<ICategoryRepository>();
+                return _baseRepository ?? ServiceProvider.Reslove<ITestRepository>(DbContextFactory<Tbl_TestEntities>.Current.Operator);
             }
         }
-
-        public override IBaseRepository<Category> DataContext
+        public override IBaseRepository<Test> DataContext
         {
             get { return BaseRepository; }
         }

@@ -33,17 +33,17 @@ namespace PengBo.Framwork.Repository
         {
             using (var dbTransaction = new TransactionScope())
             {
-                try
+                if (action != null)
                 {
-                    if (action != null)
+                    try
                     {
                         action();
                         dbTransaction.Complete();
                     }
-                }
-                catch (Exception exception)
-                {
-                    var s = exception.ToString(); //todo：记录异常
+                    catch (Exception exception)
+                    {
+                        var s = exception.ToString(); //todo：记录异常
+                    }
                 }
             }
         }
@@ -63,7 +63,7 @@ namespace PengBo.Framwork.Repository
         }
         #endregion
         #region 保存
-        public async Task<bool> SaveChangeAsync()
+        private async Task<bool> SaveChangeAsync()
         {
             //todo:可以在此执行自己的操作例如log记录等
             using (this)
@@ -71,7 +71,7 @@ namespace PengBo.Framwork.Repository
                 return await Db.SaveChangesAsync() > 0;
             }
         }
-        public bool SaveChanges()
+        private bool SaveChanges()
         {
             //todo:可以在此执行自己的操作例如log记录等
             using (this)
@@ -83,16 +83,17 @@ namespace PengBo.Framwork.Repository
         /// 批量保存-这个按需求来调用
         /// </summary>
         /// <returns></returns>
-        public async Task BulkSaveChangeAsync()
+        private async Task BulkSaveChangeAsync()
         {
             await Task.Run(() => Db.BulkSaveChanges());
         }
         #endregion
         #region 删除
-        public void Delete(T model)
+        public bool Delete(T model)
         {
             DbSet.Attach(model);
             DbSet.Remove(model);
+            return this.SaveChanges();
         }
         public async Task<bool> DeleteAsync(T model)
         {
@@ -112,36 +113,40 @@ namespace PengBo.Framwork.Repository
             await Task.Run(() => this.BulkDelete(model));
             return await this.SaveChangeAsync();
         }
-        public void BulkDelete(IEnumerable<T> model)
+        public async Task BulkDelete(IEnumerable<T> model)
         {
             Db.BulkDelete(model);
+            await this.BulkSaveChangeAsync();
         }
         #endregion
         #region 添加
         public async Task<bool> InsertAsync(T model)
         {
-            Db.Set<T>().Add(model);
+            DbSet.Add(model);
             return await this.SaveChangeAsync();
         }
-        public void Insert(T model)
+        public bool Insert(T model)
         {
             DbSet.Add(model);
+            return this.SaveChanges();
         }
         public async Task<bool> InsertAsync(IEnumerable<T> model)
         {
             await Task.Run(() => this.BulkInsert(model));
             return await this.SaveChangeAsync();
         }
-        public void BulkInsert(IEnumerable<T> model)
+        public async Task BulkInsert(IEnumerable<T> model)
         {
             Db.BulkInsert(model);
+            await this.BulkSaveChangeAsync();
         }
         #endregion
         #region 更新
-        public void Update(T model)
+        public bool Update(T model)
         {
             DbSet.Attach(model);
             Db.Entry(model).State = EntityState.Modified;
+            return this.SaveChanges();
         }
         public async Task<bool> UpdateAsync(T model)
         {
@@ -164,9 +169,10 @@ namespace PengBo.Framwork.Repository
             });
             return await this.SaveChangeAsync();
         }
-        public void BulkUpdate(IEnumerable<T> model)
+        public async Task BulkUpdate(IEnumerable<T> model)
         {
             Db.BulkUpdate(model);
+            await this.BulkSaveChangeAsync();
         }
         #endregion
         #region 查找
@@ -198,7 +204,7 @@ namespace PengBo.Framwork.Repository
         /// <summary>
         /// 数据是否为空
         /// </summary>
-        public  bool IsEmpty()
+        public bool IsEmpty()
         {
             return DbSet.Any();
         }
@@ -225,7 +231,10 @@ namespace PengBo.Framwork.Repository
         #region 执行 select--sql
         public async Task<IQueryable<T>> SqlQueryAsync(string sql, params object[] param)
         {
-            return await Task.Run(() => Db.Database.SqlQuery<T>(sql, param).AsQueryable());
+            using (this)
+            {
+                return await Task.Run(() => Db.Database.SqlQuery<T>(sql, param).AsQueryable());
+            }
         }
         #endregion
         public void Dispose()

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace PengBo.Framwork.Wcf.Common
 {
-    public class RemoteProxyFactory
+    public class ProxyFactory
     {
         /// <summary>
         /// 执行带返回值的接口
         /// </summary>
-        public static TS GetProxy<T, TS>(Func<T, TS> funcHandler, EndpointAddress endpointAddress = null, Binding binding = null) where TS : class 
+        public static TS GetProxy<T, TS>(Func<T, TS> funcHandler, EndpointAddress endpointAddress = null, Binding binding = null) where TS :class 
         {
             TS ts = null;
             ChannelFactory<T> proxy;
@@ -59,7 +59,7 @@ namespace PengBo.Framwork.Wcf.Common
         /// <summary>
         /// 执行任意接口
         /// </summary>
-        public static void GetProxy<T>(Action<T> actionHandler, EndpointAddress endpointAddress = null, Binding binding = null) where T : class
+        public static void GetProxyAny<T>(Action<T> actionHandler, EndpointAddress endpointAddress = null, Binding binding = null) where T : class
         {
             ChannelFactory<T> proxy;
             if (binding != null && endpointAddress != null)

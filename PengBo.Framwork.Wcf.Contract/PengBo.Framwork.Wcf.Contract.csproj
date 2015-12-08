@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="IBaseService.cs" />
     <Compile Include="ICategoryService.cs" />
+    <Compile Include="ITestService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

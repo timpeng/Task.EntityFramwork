@@ -38,10 +38,26 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.3.3.1\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\packages\Autofac.Configuration.3.3.0\lib\net40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,6 +88,24 @@
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PengBo.Framwork.Repository\PengBo.Framwork.Repository.csproj">
+      <Project>{751454ce-e047-4e14-96bd-7390835ca521}</Project>
+      <Name>PengBo.Framwork.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PengBo.Framwork.Unity\PengBo.Framwork.Unity.csproj">
+      <Project>{f2fbbf9b-8e71-4c92-8cb4-cdf7f71c1e69}</Project>
+      <Name>PengBo.Framwork.Unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PengBo.Framwork.Wcf.Contract\PengBo.Framwork.Wcf.Contract.csproj">
+      <Project>{db5bd61a-a1a9-4ef0-b450-80c1d6add3cc}</Project>
+      <Name>PengBo.Framwork.Wcf.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PengBo.Framwork.Wcf.Service\PengBo.Framwork.Wcf.Service.csproj">
+      <Project>{cb7453f0-d7dd-4839-860c-2198e12f9ff9}</Project>
+      <Name>PengBo.Framwork.Wcf.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
